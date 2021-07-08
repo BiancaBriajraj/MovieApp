@@ -11,11 +11,12 @@
         android:id="@+id/imageView4"
         android:layout_width="94dp"
         android:layout_height="86dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="36dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteY="147dp" />
+        android:contentDescription="@string/Picture_1" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
@@ -23,62 +24,66 @@
         android:layout_height="50dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/Search_Bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="41dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable"
-        tools:layout_editor_absoluteY="44dp" />
+        android:contentDescription="@string/Search_Image" />
 
     <TextView
         android:id="@+id/Action"
         android:layout_width="77dp"
         android:layout_height="31dp"
+        android:layout_marginStart="36dp"
         android:layout_marginBottom="12dp"
-        android:text="Action"
+        android:text="@string/Category_Action"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="86dp"
         android:layout_height="87dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="155dp" />
+        android:contentDescription="@string/Pictue_2" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="83dp"
         android:layout_height="86dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteY="146dp" />
+        android:contentDescription="@string/Picture_3" />
 
     <TextView
         android:id="@+id/Category_Romance"
         android:layout_width="106dp"
         android:layout_height="31dp"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="24dp"
-        android:text="Romance"
+        android:text="@string/Category_Romance"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -88,22 +93,22 @@
         android:layout_width="90dp"
         android:layout_height="83dp"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Category_Romance"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/Picture_4" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="82dp"
         android:layout_height="81dp"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
         android:layout_marginTop="68dp"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/Picture_5" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -111,32 +116,33 @@
         android:layout_height="80dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/Picture_2" />
 
     <TextView
         android:id="@+id/Category_Thriller"
         android:layout_width="104dp"
         android:layout_height="39dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
-        android:text="Thriller"
+        android:text="@string/Category_Thriller"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="29dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="81dp"
         android:layout_height="68dp"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
         android:layout_marginBottom="200dp"
+        android:contentDescription="@string/Picture_7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
@@ -146,20 +152,21 @@
         android:layout_width="74dp"
         android:layout_height="78dp"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="76dp"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/Picture_8" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="78dp"
         android:layout_height="76dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteY="463dp" />
+        android:contentDescription="@string/Picture_9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
