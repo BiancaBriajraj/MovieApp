@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">MovieApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Search_Bar" />
+    <string name="Category_Romance">Category_Romance</string>
+    <string name="Picture_2">Picture_2</string>
+    <string name="Picture_8">Picture_8</string>
+    <string name="Picture_1">Picture_1</string>
+    <string name="Picture_4">Picture_4</string>
+    <string name="Picture_3">Picture_3</string>
+    <string name="Category_Action">Category_Action</string>
+    <string name="Category_Thriller">Category_Triller</string>
+    <string name="Picture_7">Picture_7</string>
+    <string name="Picture_5">Picture_5</string>
+    <string name="Pictue_2">Pictue_2</string>
+    <string name="Search_Image">Search_Image</string>
+    <string name="Picture_9">Picture_9</string>
 </resources>
