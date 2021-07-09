@@ -7,5 +7,26 @@
     <fragment
         android:id="@+id/mainScreen"
         android:name="com.example.movieapp.view.MainScreen"
-        android:label="MainScreen" />
+        android:label="MainScreen" >
+        <action
+            android:id="@+id/action_mainScreen_to_listOfMoviesFragment2"
+            app:destination="@id/listOfMoviesFragment2" />
+        <action
+            android:id="@+id/action_mainScreen_to_informationFragment2"
+            app:destination="@id/informationFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfMoviesFragment2"
+        android:name="com.example.movieapp.view.ListOfMoviesFragment"
+        android:label="fragment_list_of_movies"
+        tools:layout="@layout/fragment_list_of_movies" >
+        <action
+            android:id="@+id/action_listOfMoviesFragment2_to_informationFragment2"
+            app:destination="@id/informationFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationFragment2"
+        android:name="com.example.movieapp.view.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" />
 </navigation>
