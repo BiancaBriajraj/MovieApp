@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
     tools:context=".MainActivity">
-  
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -21,10 +20,10 @@
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/movie_nav_graph" />
-
-   
-
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/movie_nav_graph"
+        tools:layout="@layout/fragment_main_screen" />
 </androidx.constraintlayout.widget.ConstraintLayout>

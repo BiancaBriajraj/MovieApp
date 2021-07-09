@@ -2,6 +2,7 @@
     <string name="app_name">MovieApp</string>
     <string name="Search_Bar" />
     <string name="Category_Romance">Category_Romance</string>
+    <string name="hello_blank_fragment"> Hello Fragment</string>
     <string name="Picture_2">Picture_2</string>
     <string name="Picture_8">Picture_8</string>
     <string name="Picture_1">Picture_1</string>
