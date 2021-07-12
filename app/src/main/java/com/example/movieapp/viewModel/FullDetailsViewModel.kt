@@ -21,11 +21,11 @@ class FullDetailsViewModel : ViewModel() {
 
     val loading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>()
-    fun getInfo() {
-        retrieveList()
+    fun getInfo(retrievedID: Int) {
+        retrieveList(retrievedID)
     }
 
-    private fun retrieveList() {
+    private fun retrieveList(movieID:Int) {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
@@ -33,7 +33,7 @@ class FullDetailsViewModel : ViewModel() {
         loading.value = true
 
         val apiService = retrofit.create(MovieFullDetailsApiService::class.java)
-        val mCall: Call<MovieFullDetails> = apiService.getFullMovieInfo(550, API_KEY)
+        val mCall: Call<MovieFullDetails> = apiService.getFullMovieInfo(movieID, API_KEY)
         mCall.enqueue(object : Callback<MovieFullDetails> {
             override fun onResponse(call: Call<MovieFullDetails>, response: Response<MovieFullDetails>) {
                 if (response.isSuccessful) {
