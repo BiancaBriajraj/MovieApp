@@ -23,10 +23,20 @@
         <action
             android:id="@+id/action_listOfMoviesFragment2_to_informationFragment2"
             app:destination="@id/informationFragment2" />
+        <argument
+            android:name="genreId"
+            app:argType="integer" />
+        <argument
+            android:name="genreName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/informationFragment2"
         android:name="com.example.movieapp.view.InformationFragment"
         android:label="fragment_information"
-        tools:layout="@layout/fragment_information" />
+        tools:layout="@layout/fragment_information" >
+        <argument
+            android:name="movieID"
+            app:argType="integer" />
+    </fragment>
 </navigation>
