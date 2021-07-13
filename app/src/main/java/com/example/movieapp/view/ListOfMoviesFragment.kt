@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.FragmentListOfMoviesBinding
 import com.example.movieapp.viewModel.ListOfMoviesByGenreAdapter
 import com.example.movieapp.viewModel.SummDetailsViewModel
+import kotlinx.android.synthetic.main.fragment_list_of_movies.*
 
 class ListOfMoviesFragment : Fragment() {
     private lateinit var binding: FragmentListOfMoviesBinding
@@ -41,8 +42,19 @@ class ListOfMoviesFragment : Fragment() {
             val genreCode = it["genreId"]
 
             binding.listCatName.text = it["genreName"].toString()
+                viewModelSummMovie.loading.observe(viewLifecycleOwner, Observer { loading ->
+                    if(loading){
+                        binding.apply {
+                            progressBar2.visibility = View.VISIBLE
+                            listOfMoviesbyGenres.visibility = View.GONE
+                        }
+                    }else{
+                        binding.progressBar2.visibility = View.GONE
+                    }
+                })
                 viewModelSummMovie.listAllMovies.observe(viewLifecycleOwner, { list->
                     listAdapter.update(list.results, genreCode as Int)
+                    binding.listOfMoviesbyGenres.visibility = View.VISIBLE
                 })
 
             binding.listOfMoviesbyGenres.apply {
