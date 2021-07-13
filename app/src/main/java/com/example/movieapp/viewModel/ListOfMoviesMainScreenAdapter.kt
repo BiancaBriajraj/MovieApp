@@ -29,11 +29,11 @@ class ListOfMoviesMainScreenAdapter(private val movieList: ArrayList<Results>, p
                 Glide.with(holder.itemView)
                     .load(media)
                     .into(poster)
-            }
-        }
-            poster.setOnClickListener {
-                Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToInformationFragment2(movieList[position].id))
+                poster.setOnClickListener {
+                    Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToInformationFragment2(movieList[position].id))
 
+                }
+        }
         }
     }
 

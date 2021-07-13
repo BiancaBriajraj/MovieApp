@@ -62,6 +62,16 @@ class ListOfMoviesFragment : Fragment() {
                 adapter = listAdapter
             }
         }
+        viewModelSummMovie.error.observe(viewLifecycleOwner, Observer { errorMovieList ->
+            if(errorMovieList){
+                binding.apply {
+                    errorListOfMovies.visibility =View.VISIBLE
+                    listOfMoviesbyGenres.visibility = View.GONE
+                }
+            }else{
+                binding.errorListOfMovies.visibility =View.GONE
+            }
+        })
     }}
 
 

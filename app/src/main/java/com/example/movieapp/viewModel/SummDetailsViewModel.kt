@@ -46,6 +46,9 @@ class SummDetailsViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _listSearched.value = response.body()!!
                     loading.value = false
+                    if(response.body()!!.results.isEmpty()){
+                        error.value = true
+                    }
                 } else {
                     loading.value = false
                 }

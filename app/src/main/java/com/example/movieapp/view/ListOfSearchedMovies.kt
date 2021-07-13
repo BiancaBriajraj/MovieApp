@@ -58,6 +58,17 @@ class ListOfSearchedMovies : Fragment() {
                 binding.searchedRecylerView.visibility = View.VISIBLE
         })
 
+            viewModelSummMovie.error.observe(viewLifecycleOwner, Observer { errorMovieList ->
+                if(errorMovieList){
+                    binding.apply {
+                        errorSearchedMovies.visibility =View.VISIBLE
+                        searchedRecylerView.visibility = View.GONE
+                    }
+                }else{
+                    binding.errorSearchedMovies.visibility =View.GONE
+                }
+            })
+
 
     binding.searchedRecylerView.apply {
         layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)

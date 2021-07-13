@@ -43,6 +43,27 @@ class MainScreen : Fragment() {
         viewModelSummMovie = ViewModelProvider(this).get(SummDetailsViewModel::class.java)
         viewModelSummMovie.getAdult(true)
 
+        viewModelGenre.loading.observe(viewLifecycleOwner, Observer { genreLoading->
+            if(genreLoading){
+                    binding.apply {
+                        progressBar4.visibility = View.VISIBLE
+                        categoryRecyclerView.visibility = View.GONE
+            } } else{
+                    viewModelSummMovie.loading.observe(viewLifecycleOwner, Observer { moviesLoading->
+                        if (moviesLoading){
+                            binding.apply {
+                                progressBar4.visibility = android.view.View.VISIBLE
+                                categoryRecyclerView.visibility = android.view.View.GONE
+                            }}
+                            else{
+                                binding.progressBar4.visibility = View.GONE
+                            }
+
+                    })
+                }
+        })
+
+
         viewModelGenre.listOfGenres.observe(viewLifecycleOwner, { list ->
             viewModelSummMovie.listAllMovies.observe(viewLifecycleOwner, {
                 viewModelSummMovie.listAllMovies.value?.let { it1 -> listAdapter.update(list, it1.results) }
@@ -54,6 +75,23 @@ class MainScreen : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = listAdapter
         }
+
+        viewModelGenre.error.observe(viewLifecycleOwner, Observer { errorGenre->
+            if(errorGenre){
+                binding.errorMainScreen.visibility = View.VISIBLE
+                binding.categoryRecyclerView.visibility = View.GONE
+            }else {
+                binding.errorMainScreen.visibility =View.GONE
+            }
+        })
+        viewModelSummMovie.error.observe(viewLifecycleOwner, Observer { errorGenre->
+            if(errorGenre){
+                binding.errorMainScreen.visibility = View.VISIBLE
+                binding.categoryRecyclerView.visibility = View.GONE
+            }else {
+                binding.errorMainScreen.visibility =View.GONE
+            }
+        })
 
         binding.goButton.setOnClickListener {
             val userInput = binding.editTextTextPersonName.text.toString()
