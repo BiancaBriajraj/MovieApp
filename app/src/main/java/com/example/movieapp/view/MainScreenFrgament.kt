@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.FragmentMainScreenBinding
 import com.example.movieapp.viewModel.CategoryAdapter
@@ -53,7 +55,9 @@ class MainScreen : Fragment() {
             adapter = listAdapter
         }
 
-
+        binding.goButton.setOnClickListener {
+            val userInput = binding.editTextTextPersonName.text.toString()
+            Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToListOfSearchedMovies2(userInput))
+        }
     }
-
 }

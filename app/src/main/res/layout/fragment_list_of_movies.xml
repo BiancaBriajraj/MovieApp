@@ -17,10 +17,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listOfMoviesbyGenre"
+        android:id="@+id/listOfMoviesbyGenres"
         android:layout_width="411dp"
         android:layout_height="710dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
