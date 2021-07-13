@@ -7,71 +7,64 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.FragmentListOfMoviesBinding
 import com.example.movieapp.viewModel.ListOfMoviesByGenreAdapter
 import com.example.movieapp.viewModel.SummDetailsViewModel
-import kotlinx.android.synthetic.main.fragment_list_of_movies.*
 
 class ListOfMoviesFragment : Fragment() {
     private lateinit var binding: FragmentListOfMoviesBinding
     private lateinit var viewModelSummMovie: SummDetailsViewModel
-
-
-    private val listAdapter= ListOfMoviesByGenreAdapter(arrayListOf(),0)
+    private val listAdapter = ListOfMoviesByGenreAdapter(arrayListOf(), 0)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentListOfMoviesBinding.inflate(inflater,container,false)
+        binding = FragmentListOfMoviesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     @SuppressLint("WrongConstant")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModelSummMovie = ViewModelProvider(this).get(SummDetailsViewModel::class.java)
         viewModelSummMovie.getAdult(true)
-
         arguments?.let { it ->
             val genreCode = it["genreId"]
-
             binding.listCatName.text = it["genreName"].toString()
-                viewModelSummMovie.loading.observe(viewLifecycleOwner, Observer { loading ->
-                    if(loading){
-                        binding.apply {
-                            progressBar2.visibility = View.VISIBLE
-                            listOfMoviesbyGenres.visibility = View.GONE
-                        }
-                    }else{
-                        binding.progressBar2.visibility = View.GONE
+            viewModelSummMovie.loading.observe(viewLifecycleOwner, { loading ->
+                if (loading) {
+                    binding.apply {
+                        progressBar2.visibility = View.VISIBLE
+                        listOfMoviesbyGenres.visibility = View.GONE
                     }
-                })
-                viewModelSummMovie.listAllMovies.observe(viewLifecycleOwner, { list->
-                    listAdapter.update(list.results, genreCode as Int)
-                    binding.listOfMoviesbyGenres.visibility = View.VISIBLE
-                })
-
+                } else {
+                    binding.progressBar2.visibility = View.GONE
+                }
+            })
+            viewModelSummMovie.listAllMovies.observe(viewLifecycleOwner, { list ->
+                listAdapter.update(list.results, genreCode as Int)
+                binding.listOfMoviesbyGenres.visibility = View.VISIBLE
+            })
             binding.listOfMoviesbyGenres.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
                 adapter = listAdapter
             }
         }
-        viewModelSummMovie.error.observe(viewLifecycleOwner, Observer { errorMovieList ->
-            if(errorMovieList){
+        viewModelSummMovie.error.observe(viewLifecycleOwner, { errorMovieList ->
+            if (errorMovieList) {
                 binding.apply {
-                    errorListOfMovies.visibility =View.VISIBLE
+                    errorListOfMovies.visibility = View.VISIBLE
                     listOfMoviesbyGenres.visibility = View.GONE
                 }
-            }else{
-                binding.errorListOfMovies.visibility =View.GONE
+            } else {
+                binding.errorListOfMovies.visibility = View.GONE
             }
         })
-    }}
+    }
+}
 
 

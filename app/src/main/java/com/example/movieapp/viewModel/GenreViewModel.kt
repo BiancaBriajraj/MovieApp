@@ -17,7 +17,6 @@ class GenreViewModel : ViewModel() {
     private val API_KEY = "092ef080e5f1d57b6101f71603911376"
     private val _listOfGenres = MutableLiveData<GenresInfo>()
     val listOfGenres: LiveData<GenresInfo> get() = _listOfGenres
-
     val loading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>()
 
@@ -31,7 +30,6 @@ class GenreViewModel : ViewModel() {
             .baseUrl(BASE_URL)
             .build()
         loading.value = true
-
         val apiService = retrofit.create(GenresApiService::class.java)
         val mCall: Call<GenresInfo> = apiService.getGenres(API_KEY)
         mCall.enqueue(object : Callback<GenresInfo> {
@@ -43,6 +41,7 @@ class GenreViewModel : ViewModel() {
                     loading.value = false
                 }
             }
+
             override fun onFailure(call: Call<GenresInfo>, t: Throwable) {
                 loading.value = false
                 error.value = true

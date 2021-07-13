@@ -1,6 +1,6 @@
 package com.example.movieapp.model.servies
 
-import com.example.movieapp.model.MovieSummDetails
+import com.example.movieapp.model.models.MovieSummDetails
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

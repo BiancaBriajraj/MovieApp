@@ -1,4 +1,4 @@
-package com.example.movieapp.model
+package com.example.movieapp.model.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -34,5 +34,4 @@ data class Results(
     val voteAvg: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-
 )

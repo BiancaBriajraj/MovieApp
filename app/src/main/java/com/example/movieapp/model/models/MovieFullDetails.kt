@@ -57,7 +57,7 @@ data class ProductionCompanies(
     @SerializedName("logo_path")
     val logoPath: String?,
     //@SerializedName("origin_country")
-   // val originCountry: String
+    // val originCountry: String
 )
 
 data class ProductionCountries(
