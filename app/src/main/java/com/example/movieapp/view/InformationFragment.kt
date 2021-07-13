@@ -48,10 +48,15 @@ class InformationFragment : Fragment() {
                         .into(infoMovieImage)
                     infoMovieYear.text = list.releaseDate
                     infoVoteAverage.text = getString(R.string.vote_average,list.voteAvg.toString())
-                    infoLanguage.text = getString(R.string.language, list.orgLanguage)
-                    infoProductionCompany.text = getString(R.string.production_company," ")
+                    infoLanguage.text = getString(R.string.language, list.orgLanguage.uppercase())
                     list.productionCompanies.forEach { prod ->
-                        infoProductionCompany.append(" ,${prod.name}")
+                        if(prod.name == list.productionCompanies[0].name)
+                        {
+                            infoProductionCompany.append(" ${prod.name}")
+                        }else{
+                            infoProductionCompany.append(" ,${prod.name}")
+                        }
+
                     }
                     infoMovieOverview.text = list.overview
 
