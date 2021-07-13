@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#91CAEC">
 
     <TextView
         android:id="@+id/categoryNameText"
@@ -42,7 +43,6 @@
         android:id="@+id/moreButtom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
