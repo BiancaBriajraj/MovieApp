@@ -79,11 +79,10 @@
         android:id="@+id/info_production_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
         android:layout_marginTop="44dp"
         android:gravity="center_horizontal"
         android:text="@string/production_company"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_language" />
 
