@@ -62,4 +62,5 @@
         app:layout_constraintStart_toStartOf="@+id/category_recycler_view"
         app:srcCompat="@android:drawable/ic_dialog_alert"
         tools:visibility="invisible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

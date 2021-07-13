@@ -38,6 +38,7 @@
         android:layout_height="171dp"
         android:contentDescription="@string/movie_image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_movie_name"
         tools:src="@tools:sample/avatars" />
@@ -46,9 +47,9 @@
         android:id="@+id/info_movie_year"
         android:layout_width="79dp"
         android:layout_height="31dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginLeft="164dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="16dp"
         android:text="@string/year"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_movie_image" />
@@ -57,57 +58,56 @@
         android:id="@+id/info_vote_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:text="@string/vote_average"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_movie_year" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/info_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:text="@string/language"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_vote_average" />
-
-    <TextView
-        android:id="@+id/info_production_company"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:gravity="center_horizontal"
-        android:text="@string/production_company"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_language" />
+        app:layout_constraintTop_toBottomOf="@+id/info_vote_average" />
 
     <TextView
         android:id="@+id/info_movie_overview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="87dp"
+        android:layout_marginTop="136dp"
         android:gravity="center_horizontal"
         android:text="@string/movie_overview"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_production_company"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/info_movie_year" />
 
     <ImageView
         android:id="@+id/error_information"
         android:layout_width="95dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="16dp"
         android:src="@android:drawable/ic_dialog_alert"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/info_movie_overview"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/info_runtime_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Runtime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_language" />
 </androidx.constraintlayout.widget.ConstraintLayout>
