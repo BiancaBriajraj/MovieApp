@@ -61,22 +61,22 @@ class SummDetailsViewModel : ViewModel() {
     private fun sortMovies(adultIncluded: Boolean) {
         loading.value = true
         val apiService = retrofit.create(MovieSummDetailsApiService::class.java)
-        val mCall: Call<MovieSummDetails> = apiService.getMovies(API_KEY, adultIncluded, 77)
-        mCall.enqueue(object : Callback<MovieSummDetails> {
-            override fun onResponse(call: Call<MovieSummDetails>, response: Response<MovieSummDetails>) {
-                if (response.isSuccessful) {
-                    _listAllMovies.value = response.body()!!
-                    loading.value = false
+            val mCall: Call<MovieSummDetails> = apiService.getMovies(API_KEY, adultIncluded, 60)
+            mCall.enqueue(object : Callback<MovieSummDetails> {
+                override fun onResponse(call: Call<MovieSummDetails>, response: Response<MovieSummDetails>) {
+                    if (response.isSuccessful) {
+                        _listAllMovies.value = response.body()!!
+                        loading.value = false
 
-                } else {
-                    loading.value = false
+                    } else {
+                        loading.value = false
+                    }
+
                 }
-
-            }
-            override fun onFailure(call: Call<MovieSummDetails>, t: Throwable) {
-                loading.value = false
-                error.value = true
-            }
-        })
+                override fun onFailure(call: Call<MovieSummDetails>, t: Throwable) {
+                    loading.value = false
+                    error.value = true
+                }
+            })
     }
-}
+    }

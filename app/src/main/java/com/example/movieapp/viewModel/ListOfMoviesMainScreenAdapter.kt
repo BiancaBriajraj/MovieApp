@@ -17,7 +17,6 @@ class ListOfMoviesMainScreenAdapter(private val movieList: ArrayList<Results>, p
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.list_item ,parent,false)
-
         return ViewHolder(layout)
     }
 

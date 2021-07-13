@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.navigation.Navigation
@@ -39,15 +38,12 @@ class CategoryAdapter(private val genreList:ArrayList<Genres>, private val movie
         holder.itemView.findViewById<TextView>(R.id.genreCode).text = genreList[position].id.toString()
 
         val childLayoutManager = LinearLayoutManager(holder.recyclerView.context, LinearLayout.HORIZONTAL, false)
-       // childLayoutManager.initialPrefetchItemCount = 3
+      //  holder.recyclerView.addItemDecoration()
         holder.recyclerView.apply {
             layoutManager = childLayoutManager
-           // addItemDecoration(resources.getDimensionPixelSize(R.dimen))
             adapter = ListOfMoviesMainScreenAdapter(moviePosters,genreList[position].id)
-
             setRecycledViewPool(viewPool)
         }
-
         holder.itemView.findViewById<FloatingActionButton>(R.id.moreButtom).setOnClickListener {
             Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToListOfMoviesFragment2(genreList[position].id,genreList[position].name))
         }
@@ -65,4 +61,5 @@ class CategoryAdapter(private val genreList:ArrayList<Genres>, private val movie
         notifyDataSetChanged()
 
     }
+
 }

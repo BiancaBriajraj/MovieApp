@@ -7,12 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentListOfSearchedMoviesBinding
-import com.example.movieapp.viewModel.ListOfMoviesByGenreAdapter
 import com.example.movieapp.viewModel.SearchedMoviesAdapter
 import com.example.movieapp.viewModel.SummDetailsViewModel
 import kotlinx.android.synthetic.main.fragment_list_of_searched_movies.*
@@ -28,7 +25,7 @@ class ListOfSearchedMovies : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
        binding = FragmentListOfSearchedMoviesBinding.inflate(inflater,container,false)
         return  binding.root
     }
@@ -44,7 +41,7 @@ class ListOfSearchedMovies : Fragment() {
             binding.userInputText.text = userText
             viewModelSummMovie.getSearchedMovieDetails(userText)
 
-            viewModelSummMovie.loading.observe(viewLifecycleOwner, Observer { loading ->
+            viewModelSummMovie.loading.observe(viewLifecycleOwner, { loading ->
                 if(loading){
                     binding.apply {
                         progressBarSearchList.visibility = View.VISIBLE
@@ -53,7 +50,7 @@ class ListOfSearchedMovies : Fragment() {
                         progressBarSearchList.visibility = View.GONE
                     }
             })
-            viewModelSummMovie.listSearch.observe(viewLifecycleOwner, Observer { it1 ->
+            viewModelSummMovie.listSearch.observe(viewLifecycleOwner, { it1 ->
                 listAdapter.update(it1.results)
                 binding.searchedRecylerView.visibility = View.VISIBLE
         })

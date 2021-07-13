@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.model.Results
-import com.example.movieapp.view.ListOfMoviesFragmentDirections
 import com.example.movieapp.view.ListOfSearchedMoviesDirections
-import com.example.movieapp.view.MainScreenDirections
 
 class SearchedMoviesAdapter(private val movieList: ArrayList<Results>): RecyclerView.Adapter<SearchedMoviesAdapter.ViewHolder>() {
 
@@ -19,7 +17,6 @@ class SearchedMoviesAdapter(private val movieList: ArrayList<Results>): Recycler
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.list_item ,parent,false)
-
         return ViewHolder(layout)
     }
 
