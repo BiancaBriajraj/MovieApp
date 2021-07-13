@@ -42,13 +42,7 @@ class MainScreen : Fragment() {
         viewModelSummMovie = ViewModelProvider(this).get(SummDetailsViewModel::class.java)
         viewModelSummMovie.getAdult(true)
 
-        viewModelGenre.loading.observe(viewLifecycleOwner, { genreLoading ->
-            if (genreLoading) {
-                binding.apply {
-                    progressBar4.visibility = View.VISIBLE
-                    categoryRecyclerView.visibility = View.GONE
-                }
-            } else {
+
                 viewModelSummMovie.loading.observe(viewLifecycleOwner, { moviesLoading ->
                     if (moviesLoading) {
                         binding.apply {
@@ -57,10 +51,9 @@ class MainScreen : Fragment() {
                         }
                     } else {
                         binding.progressBar4.visibility = View.GONE
-                    }
-                })
             }
         })
+
         viewModelGenre.listOfGenres.observe(viewLifecycleOwner, { list ->
             viewModelSummMovie.listAllMovies.observe(viewLifecycleOwner, {
                 viewModelSummMovie.listAllMovies.value?.let { it1 -> listAdapter.update(list, it1.results) }

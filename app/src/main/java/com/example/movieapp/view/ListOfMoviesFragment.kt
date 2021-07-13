@@ -49,6 +49,7 @@ class ListOfMoviesFragment : Fragment() {
                 listAdapter.update(list.results, genreCode as Int)
                 binding.listOfMoviesbyGenres.visibility = View.VISIBLE
             })
+
             binding.listOfMoviesbyGenres.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
                 adapter = listAdapter

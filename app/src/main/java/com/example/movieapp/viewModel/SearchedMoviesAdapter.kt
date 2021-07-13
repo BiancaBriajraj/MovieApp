@@ -16,13 +16,13 @@ class SearchedMoviesAdapter(private val movieList: ArrayList<Results>) : Recycle
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layout = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        val layout = LayoutInflater.from(parent.context).inflate(R.layout.list_of_movies_item, parent, false)
         return ViewHolder(layout)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val media = "https://image.tmdb.org/t/p/w500/${movieList[position].posterPath}"
-        val poster = holder.itemView.findViewById<ImageView>(R.id.moviePosterImage)
+        val poster = holder.itemView.findViewById<ImageView>(R.id.fullPosterImage)
         Glide.with(holder.itemView)
             .load(media)
             .into(poster)
