@@ -98,4 +98,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_production_company"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/error_information"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="68dp"
+        android:src="@android:drawable/ic_dialog_alert"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/info_movie_overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

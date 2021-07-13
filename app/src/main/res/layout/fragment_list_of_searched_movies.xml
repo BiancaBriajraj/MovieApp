@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/clapper_board"
+    android:background="#91CAEC"
     tools:context=".view.ListOfSearchedMovies">
 
 
@@ -35,4 +35,20 @@
         android:layout_height="187dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/error_searched_movies"
+        android:layout_width="95dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="264dp"
+        android:src="@android:drawable/ic_dialog_alert"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="@+id/searchedRecylerView"
+        app:layout_constraintTop_toTopOf="@+id/searchedRecylerView"
+        tools:visibility="invisible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
