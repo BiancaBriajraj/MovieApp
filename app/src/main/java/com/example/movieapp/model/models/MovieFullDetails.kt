@@ -7,27 +7,27 @@ data class MovieFullDetails(
     @SerializedName("backdrop_path")
     val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    val collection: Collection,
+    //val collection: Collection,
     val genres: ArrayList<Genres>,
     val homepage: String?,
-    val id: Int,
-    @SerializedName("imdb_id")
-    val imdbId: String?,
+    //val id: Int,
+    //@SerializedName("imdb_id")
+    //val imdbId: String?,
     @SerializedName("original_language")
     val orgLanguage: String,
     @SerializedName("original_title")
     val orgTitleString: String,
     val overview: String?,
-    val popularity: Double,
-    @SerializedName("poster_path")
-    val posterPath: String?,
+    val popularity: Double,  //How does it show?
+    //@SerializedName("poster_path")
+    //val posterPath: String?,
     @SerializedName("production_companies")
     val productionCompanies: ArrayList<ProductionCompanies>,
-    @SerializedName("production_countries")
-    val productionCountries: ArrayList<ProductionCountries>,
+    //@SerializedName("production_countries")
+    //val productionCountries: ArrayList<ProductionCountries>,
     @SerializedName("release_date")
     val releaseDate: String,
-    val revenue: Int,
+    //val revenue: Int,
     val runtimes: Int?,
     @SerializedName("spoken_languages")
     val spokenLanguages: ArrayList<SpokenLanguages>,
@@ -35,10 +35,10 @@ data class MovieFullDetails(
     val tagline: String?,
     val title: String,
     val video: Boolean,
-    @SerializedName("vote_average")
-    val voteAvg: Double,
-    @SerializedName("vote_count")
-    val voteCount: Int
+    //@SerializedName("vote_average")
+    //val voteAvg: Double,
+    //@SerializedName("vote_count")
+    //val voteCount: Int
 )
 
 data class Collection(
@@ -56,8 +56,8 @@ data class ProductionCompanies(
     val id: Int,
     @SerializedName("logo_path")
     val logoPath: String?,
-    @SerializedName("origin_country")
-    val originCountry: String
+    //@SerializedName("origin_country")
+   // val originCountry: String
 )
 
 data class ProductionCountries(
