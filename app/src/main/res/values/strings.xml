@@ -16,4 +16,11 @@
     <string name="Search_Image">Search_Image</string>
     <string name="Picture_9">Picture_9</string>
     <string name="edit_movie_name">Name</string>
+    <string name="movie_name">movie_name</string>
+    <string name="year">Year</string>
+    <string name="vote_average">Vote Average</string>
+    <string name="language">Language</string>
+    <string name="production_company">Production Company</string>
+    <string name="movie_overview">Movie Overview</string>
+    <string name="movie_image">movie_image</string>
 </resources>
