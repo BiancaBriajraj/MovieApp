@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainScreen_to_informationFragment2"
             app:destination="@id/informationFragment2" />
+        <action
+            android:id="@+id/action_mainScreen_to_listOfSearchedMovies2"
+            app:destination="@id/listOfSearchedMovies2" />
     </fragment>
     <fragment
         android:id="@+id/listOfMoviesFragment2"
@@ -38,5 +41,17 @@
         <argument
             android:name="movieID"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfSearchedMovies2"
+        android:name="com.example.movieapp.view.ListOfSearchedMovies"
+        android:label="fragment_list_of_searched_movies"
+        tools:layout="@layout/fragment_list_of_searched_movies" >
+        <action
+            android:id="@+id/action_listOfSearchedMovies2_to_informationFragment2"
+            app:destination="@id/informationFragment2" />
+        <argument
+            android:name="userInputs"
+            app:argType="string" />
     </fragment>
 </navigation>
