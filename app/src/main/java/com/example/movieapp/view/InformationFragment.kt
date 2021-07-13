@@ -51,7 +51,7 @@ class InformationFragment : Fragment() {
                     infoLanguage.text = getString(R.string.language, list.orgLanguage)
                     infoProductionCompany.text = getString(R.string.production_company," ")
                     list.productionCompanies.forEach { prod ->
-                        infoProductionCompany.append(prod.name)
+                        infoProductionCompany.append(" ,${prod.name}")
                     }
                     infoMovieOverview.text = list.overview
 
