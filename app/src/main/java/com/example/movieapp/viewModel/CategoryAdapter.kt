@@ -41,7 +41,9 @@ class CategoryAdapter(private val genreList:ArrayList<Genres>, private val movie
        // childLayoutManager.initialPrefetchItemCount = 3
         holder.recyclerView.apply {
             layoutManager = childLayoutManager
+           // addItemDecoration(resources.getDimensionPixelSize(R.dimen))
             adapter = ListOfMoviesMainScreenAdapter(moviePosters,genreList[position].id)
+
             setRecycledViewPool(viewPool)
         }
 

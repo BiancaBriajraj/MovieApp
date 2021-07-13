@@ -7,6 +7,3 @@ data class Genres(
 
 data class GenresInfo(val genres: ArrayList<Genres>)
 
-/*data class GenreDetails(
-
-)*/
