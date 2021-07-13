@@ -16,6 +16,7 @@ import com.example.movieapp.model.Results
 import com.example.movieapp.model.models.Genres
 import com.example.movieapp.model.models.GenresInfo
 import com.example.movieapp.view.MainScreenDirections
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class CategoryAdapter(private val genreList:ArrayList<Genres>, private val moviePosters : ArrayList<Results>): RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
@@ -47,7 +48,7 @@ class CategoryAdapter(private val genreList:ArrayList<Genres>, private val movie
             setRecycledViewPool(viewPool)
         }
 
-        holder.itemView.findViewById<Button>(R.id.listMovieBtn).setOnClickListener {
+        holder.itemView.findViewById<FloatingActionButton>(R.id.moreButtom).setOnClickListener {
             Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToListOfMoviesFragment2(genreList[position].id,genreList[position].name))
         }
 
