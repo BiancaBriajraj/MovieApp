@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +28,8 @@ class ListOfMoviesMainScreenAdapter(private val movieList: ArrayList<Results>, p
                 Glide.with(holder.itemView)
                     .load(media)
                     .into(poster)
-                poster.setOnClickListener {
-                    Navigation.findNavController(it).navigate(MainScreenDirections.actionMainScreenToInformationFragment2(movieList[position].id))
+                poster.setOnClickListener { post ->
+                    Navigation.findNavController(post).navigate(MainScreenDirections.actionMainScreenToInformationFragment2(movieList[position].id))
                 }
             }
         }

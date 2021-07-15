@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.FragmentListOfSearchedMoviesBinding
-import com.example.movieapp.viewModel.SearchedMoviesAdapter
-import com.example.movieapp.viewModel.SummDetailsViewModel
+import com.example.movieapp.viewModel.adapters.SearchedMoviesAdapter
+import com.example.movieapp.viewModel.viewModels.SummDetailsViewModel
 import kotlinx.android.synthetic.main.fragment_list_of_searched_movies.*
 
 class ListOfSearchedMovies : Fragment() {
@@ -36,7 +37,7 @@ class ListOfSearchedMovies : Fragment() {
             val userText = it["userInputs"].toString()
             binding.userInputText.text = userText
             viewModelSummMovie.getSearchedMovieDetails(userText)
-            viewModelSummMovie.loading.observe(viewLifecycleOwner, { loading ->
+            viewModelSummMovie.searchLoading.observe(viewLifecycleOwner, { loading ->
                 if (loading) {
                     binding.apply {
                         progressBarSearchList.visibility = View.VISIBLE
@@ -55,6 +56,7 @@ class ListOfSearchedMovies : Fragment() {
                     binding.apply {
                         errorSearchedMovies.visibility = View.VISIBLE
                         searchedRecylerView.visibility = View.GONE
+                        Toast.makeText(context, "Error has occurred. Please try again", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     binding.errorSearchedMovies.visibility = View.GONE

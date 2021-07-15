@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -18,7 +18,8 @@ class SummDetailsViewModel : ViewModel() {
     val listSearch: LiveData<MovieSummDetails> get() = _listSearched
     private val _listAllMovies = MutableLiveData<MovieSummDetails>()
     val listAllMovies: LiveData<MovieSummDetails> get() = _listAllMovies
-    val loading = MutableLiveData<Boolean>()
+    val moviesLoading = MutableLiveData<Boolean>()
+    val searchLoading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>()
 
     private val retrofit = Retrofit.Builder()
@@ -35,49 +36,52 @@ class SummDetailsViewModel : ViewModel() {
     }
 
     private fun findMovie(name: String) {
-        loading.value = true
+        searchLoading.value = true
         val apiService = retrofit.create(MovieSummDetailsApiService::class.java)
         val mCall: Call<MovieSummDetails> = apiService.getSearchedMovieInfo(API_KEY, name)
         mCall.enqueue(object : Callback<MovieSummDetails> {
             override fun onResponse(call: Call<MovieSummDetails>, response: Response<MovieSummDetails>) {
                 if (response.isSuccessful) {
                     _listSearched.value = response.body()!!
-                    loading.value = false
+                    searchLoading.value = false
                     if (response.body()!!.results.isEmpty()) {
                         error.value = true
                     }
                 } else {
-                    loading.value = false
+                    searchLoading.value = false
                 }
 
             }
 
             override fun onFailure(call: Call<MovieSummDetails>, t: Throwable) {
-                loading.value = false
+                searchLoading.value = false
                 error.value = true
             }
         })
     }
 
     private fun sortMovies(adultIncluded: Boolean) {
-        loading.value = true
+        moviesLoading.value = true
         val apiService = retrofit.create(MovieSummDetailsApiService::class.java)
-        for(i in 1..10){
-        val mCall: Call<MovieSummDetails> = apiService.getMovies(API_KEY, adultIncluded, i)
-        mCall.enqueue(object : Callback<MovieSummDetails> {
-            override fun onResponse(call: Call<MovieSummDetails>, response: Response<MovieSummDetails>) {
-                if (response.isSuccessful) {
-                    _listAllMovies.value = response.body()!!
-                } else {
-                    loading.value = false
+        for (i in 1..10) {
+            val mCall: Call<MovieSummDetails> = apiService.getMovies(API_KEY, adultIncluded, i)
+            mCall.enqueue(object : Callback<MovieSummDetails> {
+                override fun onResponse(call: Call<MovieSummDetails>, response: Response<MovieSummDetails>) {
+                    if (response.isSuccessful) {
+                        _listAllMovies.value = response.body()!!
+                    } else {
+                        moviesLoading.value = false
+                        return
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<MovieSummDetails>, t: Throwable) {
-                loading.value = false
-                error.value = true
-            }
-        })
-            loading.value = false
-    }}
+                override fun onFailure(call: Call<MovieSummDetails>, t: Throwable) {
+                    moviesLoading.value = false
+                    error.value = true
+                    return
+                }
+            })
+            moviesLoading.value = false
+        }
+    }
 }

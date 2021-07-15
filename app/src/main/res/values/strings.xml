@@ -5,7 +5,7 @@
     <string name="hello_blank_fragment"> Hello Fragment</string>
     <string name="Picture_2">Picture_2</string>
     <string name="Picture_8">Picture_8</string>
-    <string name="Picture_1">Picture_1</string>
+    <string name="Picture_1">Picture_!</string>
     <string name="Picture_4">Picture_4</string>
     <string name="Picture_3">Picture_3</string>
     <string name="Category_Action">Category_Action</string>
@@ -23,8 +23,13 @@
     <string name="production_company">Production Company: </string>
     <string name="movie_overview">Movie Overview</string>
     <string name="movie_image">movie_image</string>
-    <string name="runtime_s">Runtime %s</string>
+    <string name="runtime_s">Runtime: %s</string>
     <string name="go">GO</string>
-    <string name="name">Name</string>
+    <string name="name">Type a movie name</string>
     <string name="todo">TODO</string>
+    <string name="welcome_to_and_scene">Welcome to And..Scene</string>
+    <string name="your_go_to_movie_guide">Your go to movie guide!!</string>
+    <string name="kids_only">Kids Only</string>
+    <string name="enter">Enter</string>
+    <string name="to">to</string>
 </resources>

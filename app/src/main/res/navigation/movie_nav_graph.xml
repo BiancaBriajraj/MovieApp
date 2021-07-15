@@ -3,29 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_nav_graph"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/welcomeScreen">
     <fragment
         android:id="@+id/mainScreen"
         android:name="com.example.movieapp.view.MainScreen"
-        android:label="MainScreen" >
+        android:label="Movies">
         <action
             android:id="@+id/action_mainScreen_to_listOfMoviesFragment2"
-            app:destination="@id/listOfMoviesFragment2" />
+            app:destination="@id/listOfMoviesFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_mainScreen_to_informationFragment2"
-            app:destination="@id/informationFragment2" />
+            app:destination="@id/informationFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_mainScreen_to_listOfSearchedMovies2"
-            app:destination="@id/listOfSearchedMovies2" />
+            app:destination="@id/listOfSearchedMovies2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="restrictions"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/listOfMoviesFragment2"
         android:name="com.example.movieapp.view.ListOfMoviesFragment"
-        android:label="fragment_list_of_movies"
-        tools:layout="@layout/fragment_list_of_movies" >
+        android:label="List by Genre"
+        tools:layout="@layout/fragment_list_of_movies">
         <action
             android:id="@+id/action_listOfMoviesFragment2_to_informationFragment2"
-            app:destination="@id/informationFragment2" />
+            app:destination="@id/informationFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="genreId"
             app:argType="integer" />
@@ -36,8 +55,8 @@
     <fragment
         android:id="@+id/informationFragment2"
         android:name="com.example.movieapp.view.InformationFragment"
-        android:label="fragment_information"
-        tools:layout="@layout/fragment_information" >
+        android:label="More Information"
+        tools:layout="@layout/fragment_information">
         <argument
             android:name="movieID"
             app:argType="integer" />
@@ -45,13 +64,29 @@
     <fragment
         android:id="@+id/listOfSearchedMovies2"
         android:name="com.example.movieapp.view.ListOfSearchedMovies"
-        android:label="fragment_list_of_searched_movies"
-        tools:layout="@layout/fragment_list_of_searched_movies" >
+        android:label="Searched List"
+        tools:layout="@layout/fragment_list_of_searched_movies">
         <action
             android:id="@+id/action_listOfSearchedMovies2_to_informationFragment2"
-            app:destination="@id/informationFragment2" />
+            app:destination="@id/informationFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="userInputs"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="com.example.movieapp.view.WelcomeScreen"
+        android:label="Welcome">
+        <action
+            android:id="@+id/action_welcomeScreen_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>

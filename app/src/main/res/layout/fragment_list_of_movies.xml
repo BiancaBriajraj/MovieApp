@@ -11,13 +11,13 @@
         android:id="@+id/listCatName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textColor="#D7FB8C00"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cat Name" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listOfMoviesbyGenres"
@@ -46,6 +46,7 @@
         android:layout_width="95dp"
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/todo"
         android:src="@android:drawable/ic_dialog_alert"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"

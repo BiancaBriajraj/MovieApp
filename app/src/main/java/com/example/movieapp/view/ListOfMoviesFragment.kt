@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.FragmentListOfMoviesBinding
-import com.example.movieapp.viewModel.ListOfMoviesByGenreAdapter
-import com.example.movieapp.viewModel.SummDetailsViewModel
+import com.example.movieapp.viewModel.adapters.ListOfMoviesByGenreAdapter
+import com.example.movieapp.viewModel.viewModels.SummDetailsViewModel
 
 class ListOfMoviesFragment : Fragment() {
     private lateinit var binding: FragmentListOfMoviesBinding
@@ -35,7 +36,7 @@ class ListOfMoviesFragment : Fragment() {
         arguments?.let { it ->
             val genreCode = it["genreId"]
             binding.listCatName.text = it["genreName"].toString()
-            viewModelSummMovie.loading.observe(viewLifecycleOwner, { loading ->
+            viewModelSummMovie.moviesLoading.observe(viewLifecycleOwner, { loading ->
                 if (loading) {
                     binding.apply {
                         progressBar2.visibility = View.VISIBLE
@@ -49,7 +50,6 @@ class ListOfMoviesFragment : Fragment() {
                 listAdapter.update(list.results, genreCode as Int)
                 binding.listOfMoviesbyGenres.visibility = View.VISIBLE
             })
-
             binding.listOfMoviesbyGenres.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
                 adapter = listAdapter
@@ -60,6 +60,7 @@ class ListOfMoviesFragment : Fragment() {
                 binding.apply {
                     errorListOfMovies.visibility = View.VISIBLE
                     listOfMoviesbyGenres.visibility = View.GONE
+                    Toast.makeText(context, "Error has occurred. Please try again", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 binding.errorListOfMovies.visibility = View.GONE

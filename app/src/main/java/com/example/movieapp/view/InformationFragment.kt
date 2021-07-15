@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentInformationBinding
-import com.example.movieapp.viewModel.FullDetailsViewModel
+import com.example.movieapp.viewModel.viewModels.FullDetailsViewModel
 
 class InformationFragment : Fragment() {
 
@@ -64,6 +65,7 @@ class InformationFragment : Fragment() {
                         infoLanguage.visibility = View.GONE
                         infoVoteAverage.visibility = View.GONE
                         infoMovieYear.visibility = View.GONE
+                        Toast.makeText(context, "Error has occurred. Please try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             })

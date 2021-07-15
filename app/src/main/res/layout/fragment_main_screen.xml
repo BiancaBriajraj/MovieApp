@@ -19,7 +19,7 @@
         android:fontFamily="sans-serif-black"
         android:importantForAccessibility="auto"
         android:inputType="textPersonName"
-        android:text="@string/name"
+        android:hint="@string/name"
         app:layout_constraintEnd_toStartOf="@+id/go_button"
         app:layout_constraintTop_toTopOf="parent" />
 

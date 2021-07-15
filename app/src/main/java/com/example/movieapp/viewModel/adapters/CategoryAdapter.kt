@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -36,7 +36,6 @@ class CategoryAdapter(private val genreList: ArrayList<Genres>, private val movi
 
         holder.itemView.findViewById<TextView>(R.id.categoryNameText).text = genreList[position].name
         holder.itemView.findViewById<TextView>(R.id.genreCode).text = genreList[position].id.toString()
-
         val childLayoutManager = LinearLayoutManager(holder.recyclerView.context, LinearLayout.HORIZONTAL, false)
         // childLayoutManager.initialPrefetchItemCount = 3
         holder.recyclerView.apply {

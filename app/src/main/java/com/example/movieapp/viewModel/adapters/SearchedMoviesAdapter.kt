@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.model.models.Results
-import com.example.movieapp.view.ListOfMoviesFragmentDirections
+import com.example.movieapp.view.ListOfSearchedMoviesDirections
 
-class ListOfMoviesByGenreAdapter(private val movieList: ArrayList<Results>, private var genreCode: Int) : RecyclerView.Adapter<ListOfMoviesByGenreAdapter.ViewHolder>() {
+class SearchedMoviesAdapter(private val movieList: ArrayList<Results>) : RecyclerView.Adapter<SearchedMoviesAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -23,15 +23,11 @@ class ListOfMoviesByGenreAdapter(private val movieList: ArrayList<Results>, priv
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val media = "https://image.tmdb.org/t/p/w500/${movieList[position].posterPath}"
         val poster = holder.itemView.findViewById<ImageView>(R.id.fullPosterImage)
-        movieList[position].genresIds.forEach {
-            if (it == genreCode) {
-                Glide.with(holder.itemView)
-                    .load(media)
-                    .into(poster)
-            }
-        }
+        Glide.with(holder.itemView)
+            .load(media)
+            .into(poster)
         poster.setOnClickListener {
-            Navigation.findNavController(it).navigate(ListOfMoviesFragmentDirections.actionListOfMoviesFragment2ToInformationFragment2(movieList[position].id))
+            Navigation.findNavController(it).navigate(ListOfSearchedMoviesDirections.actionListOfSearchedMovies2ToInformationFragment2(movieList[position].id))
         }
     }
 
@@ -39,10 +35,9 @@ class ListOfMoviesByGenreAdapter(private val movieList: ArrayList<Results>, priv
         return movieList.size
     }
 
-    fun update(newList: ArrayList<Results>, genres: Int) {
+    fun update(newList: ArrayList<Results>) {
         movieList.clear()
         movieList.addAll(newList)
-        genreCode = genres
         notifyDataSetChanged()
     }
 }

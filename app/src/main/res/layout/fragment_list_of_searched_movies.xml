@@ -13,13 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
         android:textColor="#D7FB8C00"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Users Input" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchedRecylerView"
@@ -48,6 +48,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
         android:layout_marginTop="264dp"
+        android:contentDescription="@string/todo"
         android:src="@android:drawable/ic_dialog_alert"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
