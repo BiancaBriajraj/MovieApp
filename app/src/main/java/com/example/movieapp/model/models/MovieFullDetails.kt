@@ -28,7 +28,7 @@ data class MovieFullDetails(
     @SerializedName("release_date")
     val releaseDate: String,
     val revenue: Int,
-    val runtimes: Int?,
+    val runtime: Int?,
     @SerializedName("spoken_languages")
     val spokenLanguages: ArrayList<SpokenLanguages>,
     val status: String,

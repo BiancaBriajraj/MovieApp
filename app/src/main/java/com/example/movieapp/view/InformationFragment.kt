@@ -49,9 +49,13 @@ class InformationFragment : Fragment() {
                         .into(infoMovieImage)
                     infoMovieYear.text = list.releaseDate
                     infoVoteAverage.text = getString(R.string.vote_average, list.voteAvg.toString())
-                    infoLanguage.text = getString(R.string.language, list.orgLanguage.uppercase())
-                    infoRuntimeMinutes.text = getString(R.string.runtime_s, list.runtimes.toString())
+                    if (list.runtime!=null){
+                        infoRuntimeMinutes.text = getString(R.string.runtime_s, list.runtime.toString())
+                    }else{
+                        infoRuntimeMinutes.visibility = View.GONE
+                    }
                     infoMovieOverview.text = list.overview
+                    infoLanguage.text = getString(R.string.language,list.orgLanguage.uppercase())
                 }
             })
             viewModel.error.observe(viewLifecycleOwner, { fullDetailsError ->

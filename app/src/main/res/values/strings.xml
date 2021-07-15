@@ -1,20 +1,7 @@
 <resources>
     <string name="app_name">MovieApp</string>
     <string name="Search_Bar" />
-    <string name="Category_Romance">Category_Romance</string>
-    <string name="hello_blank_fragment"> Hello Fragment</string>
-    <string name="Picture_2">Picture_2</string>
-    <string name="Picture_8">Picture_8</string>
-    <string name="Picture_1">Picture_!</string>
-    <string name="Picture_4">Picture_4</string>
-    <string name="Picture_3">Picture_3</string>
-    <string name="Category_Action">Category_Action</string>
-    <string name="Category_Thriller">Category_Triller</string>
-    <string name="Picture_7">Picture_7</string>
-    <string name="Picture_5">Picture_5</string>
-    <string name="Pictue_2">Pictue_2</string>
     <string name="Search_Image">Search_Image</string>
-    <string name="Picture_9">Picture_9</string>
     <string name="edit_movie_name">Name</string>
     <string name="movie_name">movie_name</string>
     <string name="year">Year</string>
@@ -23,7 +10,7 @@
     <string name="production_company">Production Company: </string>
     <string name="movie_overview">Movie Overview</string>
     <string name="movie_image">movie_image</string>
-    <string name="runtime_s">Runtime: %s</string>
+    <string name="runtime_s">Runtime: %s mins</string>
     <string name="go">GO</string>
     <string name="name">Type a movie name</string>
     <string name="todo">TODO</string>
